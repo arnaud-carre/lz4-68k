@@ -1,8 +1,10 @@
 ;---------------------------------------------------------
 ;
-;	LZ4 block 68k depacker
-;	Written by Arnaud Carré (leonard/oxygene)
-;	LZ4 by Yann Collet ( https://lz4.github.io/lz4/ )
+;	LZ4 block 68k small depacker
+;	Written by Arnaud Carré ( @leonard_coder )
+;	https://github.com/arnaud-carre/lz4-68k
+;
+;	LZ4 technology by Yann Collet ( https://lz4.github.io/lz4/ )
 ;
 ;---------------------------------------------------------
 

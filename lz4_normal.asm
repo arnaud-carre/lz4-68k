@@ -1,12 +1,14 @@
 ;---------------------------------------------------------
 ;
 ;	LZ4 block 68k depacker
-;	Written by Arnaud Carré (leonard/oxygene)
-;	LZ4 by Yann Collet ( https://lz4.github.io/lz4/ )
+;	Written by Arnaud Carré ( @leonard_coder )
+;	https://github.com/arnaud-carre/lz4-68k
+;
+;	LZ4 technology by Yann Collet ( https://lz4.github.io/lz4/ )
 ;
 ;---------------------------------------------------------
 
-; Normal version: depacker is 180 bytes
+; Normal version: 180 bytes ( 1.53 times faster than lz4_smallest.asm )
 ;
 ; input: a0.l : packed buffer
 ;		 a1.l : output buffer

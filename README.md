@@ -12,7 +12,7 @@ If you're using LZ77 decoder in your demo, you can switch to this for sure. LZ4 
 
 | source code | decoder size | speed factor |
 |-|--------------|--------------|
-| lz4_smallest.asm | 78 bytes | x 1.0 |
+| lz4_smallest.asm | 76 bytes | x 1.0 |
 | lz4_normal.asm | 180 bytes | x 1.53 |
 | lz4_fastest.asm | 3722 bytes | x 2.36 |
 

@@ -8,7 +8,7 @@
 ;
 ;---------------------------------------------------------
 
-; Smallest version: depacker is only 78 bytes
+; Smallest version: depacker is only 76 bytes
 ;
 ; input: a0.l : packed buffer
 ;		 a1.l : output buffer
@@ -53,7 +53,7 @@ lz4_depack:
 
 			; end test is always done just after literals
 			cmpa.l	a0,a4
-			bne		.lenOffset
+			bne.s		.lenOffset
 			
 .over:		rts						; end
 

@@ -10,6 +10,7 @@
 ;---------------------------------------------------------
 
 ; input: a0.l : LZ4 frame addr ( 16bits aligned )
+;		 a1.l : output buffer
 ; output: none
 ;
 ; Depack data produced by LZ4.exe command line:

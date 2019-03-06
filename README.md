@@ -19,3 +19,9 @@ If you're using LZ77 decoder in your demo, you can switch to this for sure. LZ4 
 Speed factor is measured on ATARI ST by depacking a 167KiB unpacked demo file (packed in 105KiB). 
 
 Measured on the same machine, lz4_fastest.asm is 6.81 times faster than ARJ and 4.45 times faster than UPX ( please note packing ratio is not as good as ARJ or UPX )
+
+LZ4 Frame
+---------
+lz4_frame.asm can be used to depack a LZ4 frame. You can generate LZ4 frame using standard LZ4 command line tool, like:
+lz4.exe -9 --no-frame-crc <input_file> <output_file>
+

@@ -56,9 +56,10 @@ sl_sm0:
 		move.b	(a0)+,(a1)+
 		cmpa.l	a0,a4
 		beq.s	lz4Rts1
-		movep.w	1(a0),d3
-		move.b	(a0),d3
-		addq.w	#2,a0
+		move.b	(a0)+,d0
+		move.b	(a0)+,-(a7)
+		move.w	(a7)+,d3
+		move.b	d0,d3
 		move.l	a1,a2
 		sub.l	d3,a2
 		move.b	(a2)+,(a1)+
@@ -89,9 +90,10 @@ sl_sm1:
 		move.b	(a0)+,(a1)+
 		cmpa.l	a0,a4
 		beq.s	lz4Rts2
-		movep.w	1(a0),d3
-		move.b	(a0),d3
-		addq.w	#2,a0
+		move.b	(a0)+,d0
+		move.b	(a0)+,-(a7)
+		move.w	(a7)+,d3
+		move.b	d0,d3
 		move.l	a1,a2
 		sub.l	d3,a2
 		move.b	(a2)+,(a1)+
@@ -123,9 +125,10 @@ sl_sm2:
 		move.b	(a0)+,(a1)+
 		cmpa.l	a0,a4
 		beq.s	lz4Rts3
-		movep.w	1(a0),d3
-		move.b	(a0),d3
-		addq.w	#2,a0
+		move.b	(a0)+,d0
+		move.b	(a0)+,-(a7)
+		move.w	(a7)+,d3
+		move.b	d0,d3
 		move.l	a1,a2
 		sub.l	d3,a2
 		move.b	(a2)+,(a1)+
@@ -158,9 +161,10 @@ sl_sm3:
 		move.b	(a0)+,(a1)+
 		cmpa.l	a0,a4
 		beq.s	lz4Rts4
-		movep.w	1(a0),d3
-		move.b	(a0),d3
-		addq.w	#2,a0
+		move.b	(a0)+,d0
+		move.b	(a0)+,-(a7)
+		move.w	(a7)+,d3
+		move.b	d0,d3
 		move.l	a1,a2
 		sub.l	d3,a2
 		move.b	(a2)+,(a1)+
@@ -194,9 +198,10 @@ sl_sm4:
 		move.b	(a0)+,(a1)+
 		cmpa.l	a0,a4
 		beq.s	lz4Rts5
-		movep.w	1(a0),d3
-		move.b	(a0),d3
-		addq.w	#2,a0
+		move.b	(a0)+,d0
+		move.b	(a0)+,-(a7)
+		move.w	(a7)+,d3
+		move.b	d0,d3
 		move.l	a1,a2
 		sub.l	d3,a2
 		move.b	(a2)+,(a1)+
@@ -231,9 +236,10 @@ sl_sm5:
 		move.b	(a0)+,(a1)+
 		cmpa.l	a0,a4
 		beq.s	lz4Rts6
-		movep.w	1(a0),d3
-		move.b	(a0),d3
-		addq.w	#2,a0
+		move.b	(a0)+,d0
+		move.b	(a0)+,-(a7)
+		move.w	(a7)+,d3
+		move.b	d0,d3
 		move.l	a1,a2
 		sub.l	d3,a2
 		move.b	(a2)+,(a1)+
@@ -269,9 +275,10 @@ sl_sm6:
 		move.b	(a0)+,(a1)+
 		cmpa.l	a0,a4
 		beq.s	lz4Rts7
-		movep.w	1(a0),d3
-		move.b	(a0),d3
-		addq.w	#2,a0
+		move.b	(a0)+,d0
+		move.b	(a0)+,-(a7)
+		move.w	(a7)+,d3
+		move.b	d0,d3
 		move.l	a1,a2
 		sub.l	d3,a2
 		move.b	(a2)+,(a1)+
@@ -308,9 +315,10 @@ sl_sm7:
 		move.b	(a0)+,(a1)+
 		cmpa.l	a0,a4
 		beq.s	lz4Rts8
-		movep.w	1(a0),d3
-		move.b	(a0),d3
-		addq.w	#2,a0
+		move.b	(a0)+,d0
+		move.b	(a0)+,-(a7)
+		move.w	(a7)+,d3
+		move.b	d0,d3
 		move.l	a1,a2
 		sub.l	d3,a2
 		move.b	(a2)+,(a1)+
@@ -348,9 +356,10 @@ sl_sm8:
 		move.b	(a0)+,(a1)+
 		cmpa.l	a0,a4
 		beq.s	lz4Rts9
-		movep.w	1(a0),d3
-		move.b	(a0),d3
-		addq.w	#2,a0
+		move.b	(a0)+,d0
+		move.b	(a0)+,-(a7)
+		move.w	(a7)+,d3
+		move.b	d0,d3
 		move.l	a1,a2
 		sub.l	d3,a2
 		move.b	(a2)+,(a1)+
@@ -389,9 +398,10 @@ sl_sm9:
 		move.b	(a0)+,(a1)+
 		cmpa.l	a0,a4
 		beq.s	lz4Rts10
-		movep.w	1(a0),d3
-		move.b	(a0),d3
-		addq.w	#2,a0
+		move.b	(a0)+,d0
+		move.b	(a0)+,-(a7)
+		move.w	(a7)+,d3
+		move.b	d0,d3
 		move.l	a1,a2
 		sub.l	d3,a2
 		move.b	(a2)+,(a1)+
@@ -431,9 +441,10 @@ sl_sm10:
 		move.b	(a0)+,(a1)+
 		cmpa.l	a0,a4
 		beq.s	lz4Rts11
-		movep.w	1(a0),d3
-		move.b	(a0),d3
-		addq.w	#2,a0
+		move.b	(a0)+,d0
+		move.b	(a0)+,-(a7)
+		move.w	(a7)+,d3
+		move.b	d0,d3
 		move.l	a1,a2
 		sub.l	d3,a2
 		move.b	(a2)+,(a1)+
@@ -474,9 +485,10 @@ sl_sm11:
 		move.b	(a0)+,(a1)+
 		cmpa.l	a0,a4
 		beq.s	lz4Rts12
-		movep.w	1(a0),d3
-		move.b	(a0),d3
-		addq.w	#2,a0
+		move.b	(a0)+,d0
+		move.b	(a0)+,-(a7)
+		move.w	(a7)+,d3
+		move.b	d0,d3
 		move.l	a1,a2
 		sub.l	d3,a2
 		move.b	(a2)+,(a1)+
@@ -518,9 +530,10 @@ sl_sm12:
 		move.b	(a0)+,(a1)+
 		cmpa.l	a0,a4
 		beq.s	lz4Rts13
-		movep.w	1(a0),d3
-		move.b	(a0),d3
-		addq.w	#2,a0
+		move.b	(a0)+,d0
+		move.b	(a0)+,-(a7)
+		move.w	(a7)+,d3
+		move.b	d0,d3
 		move.l	a1,a2
 		sub.l	d3,a2
 		move.b	(a2)+,(a1)+
@@ -563,9 +576,10 @@ sl_sm13:
 		move.b	(a0)+,(a1)+
 		cmpa.l	a0,a4
 		beq.s	lz4Rts14
-		movep.w	1(a0),d3
-		move.b	(a0),d3
-		addq.w	#2,a0
+		move.b	(a0)+,d0
+		move.b	(a0)+,-(a7)
+		move.w	(a7)+,d3
+		move.b	d0,d3
 		move.l	a1,a2
 		sub.l	d3,a2
 		move.b	(a2)+,(a1)+
@@ -609,9 +623,10 @@ sl_sm14:
 		move.b	(a0)+,(a1)+
 		cmpa.l	a0,a4
 		beq.s	lz4Rts15
-		movep.w	1(a0),d3
-		move.b	(a0),d3
-		addq.w	#2,a0
+		move.b	(a0)+,d0
+		move.b	(a0)+,-(a7)
+		move.w	(a7)+,d3
+		move.b	d0,d3
 		move.l	a1,a2
 		sub.l	d3,a2
 		move.b	(a2)+,(a1)+
@@ -656,9 +671,10 @@ sl_lm:
 		move.b	(a0)+,(a1)+
 		cmpa.l	a0,a4
 		beq.s	lz4Rts16
-		movep.w	1(a0),d3
-		move.b	(a0),d3
-		addq.w	#2,a0
+		move.b	(a0)+,d0
+		move.b	(a0)+,-(a7)
+		move.w	(a7)+,d3
+		move.b	d0,d3
 		move.l	a1,a2
 		sub.l	d3,a2
 		moveq	#15+4,d1
@@ -729,9 +745,10 @@ ll_sm0:
 		bpl.s	.tloop3
 		cmpa.l	a0,a4
 		beq.s	lz4Rts17
-		movep.w	1(a0),d3
-		move.b	(a0),d3
-		addq.w	#2,a0
+		move.b	(a0)+,d0
+		move.b	(a0)+,-(a7)
+		move.w	(a7)+,d3
+		move.b	d0,d3
 		move.l	a1,a2
 		sub.l	d3,a2
 		move.b	(a2)+,(a1)+
@@ -777,9 +794,10 @@ ll_sm1:
 		bpl.s	.tloop5
 		cmpa.l	a0,a4
 		beq.s	lz4Rts18
-		movep.w	1(a0),d3
-		move.b	(a0),d3
-		addq.w	#2,a0
+		move.b	(a0)+,d0
+		move.b	(a0)+,-(a7)
+		move.w	(a7)+,d3
+		move.b	d0,d3
 		move.l	a1,a2
 		sub.l	d3,a2
 		move.b	(a2)+,(a1)+
@@ -826,9 +844,10 @@ ll_sm2:
 		bpl.s	.tloop7
 		cmpa.l	a0,a4
 		beq.s	lz4Rts19
-		movep.w	1(a0),d3
-		move.b	(a0),d3
-		addq.w	#2,a0
+		move.b	(a0)+,d0
+		move.b	(a0)+,-(a7)
+		move.w	(a7)+,d3
+		move.b	d0,d3
 		move.l	a1,a2
 		sub.l	d3,a2
 		move.b	(a2)+,(a1)+
@@ -876,9 +895,10 @@ ll_sm3:
 		bpl.s	.tloop9
 		cmpa.l	a0,a4
 		beq.s	lz4Rts20
-		movep.w	1(a0),d3
-		move.b	(a0),d3
-		addq.w	#2,a0
+		move.b	(a0)+,d0
+		move.b	(a0)+,-(a7)
+		move.w	(a7)+,d3
+		move.b	d0,d3
 		move.l	a1,a2
 		sub.l	d3,a2
 		move.b	(a2)+,(a1)+
@@ -927,9 +947,10 @@ ll_sm4:
 		bpl.s	.tloop11
 		cmpa.l	a0,a4
 		beq.s	lz4Rts21
-		movep.w	1(a0),d3
-		move.b	(a0),d3
-		addq.w	#2,a0
+		move.b	(a0)+,d0
+		move.b	(a0)+,-(a7)
+		move.w	(a7)+,d3
+		move.b	d0,d3
 		move.l	a1,a2
 		sub.l	d3,a2
 		move.b	(a2)+,(a1)+
@@ -979,9 +1000,10 @@ ll_sm5:
 		bpl.s	.tloop13
 		cmpa.l	a0,a4
 		beq.s	lz4Rts22
-		movep.w	1(a0),d3
-		move.b	(a0),d3
-		addq.w	#2,a0
+		move.b	(a0)+,d0
+		move.b	(a0)+,-(a7)
+		move.w	(a7)+,d3
+		move.b	d0,d3
 		move.l	a1,a2
 		sub.l	d3,a2
 		move.b	(a2)+,(a1)+
@@ -1032,9 +1054,10 @@ ll_sm6:
 		bpl.s	.tloop15
 		cmpa.l	a0,a4
 		beq.s	lz4Rts23
-		movep.w	1(a0),d3
-		move.b	(a0),d3
-		addq.w	#2,a0
+		move.b	(a0)+,d0
+		move.b	(a0)+,-(a7)
+		move.w	(a7)+,d3
+		move.b	d0,d3
 		move.l	a1,a2
 		sub.l	d3,a2
 		move.b	(a2)+,(a1)+
@@ -1086,9 +1109,10 @@ ll_sm7:
 		bpl.s	.tloop17
 		cmpa.l	a0,a4
 		beq.s	lz4Rts24
-		movep.w	1(a0),d3
-		move.b	(a0),d3
-		addq.w	#2,a0
+		move.b	(a0)+,d0
+		move.b	(a0)+,-(a7)
+		move.w	(a7)+,d3
+		move.b	d0,d3
 		move.l	a1,a2
 		sub.l	d3,a2
 		move.b	(a2)+,(a1)+
@@ -1141,9 +1165,10 @@ ll_sm8:
 		bpl.s	.tloop19
 		cmpa.l	a0,a4
 		beq.s	lz4Rts25
-		movep.w	1(a0),d3
-		move.b	(a0),d3
-		addq.w	#2,a0
+		move.b	(a0)+,d0
+		move.b	(a0)+,-(a7)
+		move.w	(a7)+,d3
+		move.b	d0,d3
 		move.l	a1,a2
 		sub.l	d3,a2
 		move.b	(a2)+,(a1)+
@@ -1197,9 +1222,10 @@ ll_sm9:
 		bpl.s	.tloop21
 		cmpa.l	a0,a4
 		beq.s	lz4Rts26
-		movep.w	1(a0),d3
-		move.b	(a0),d3
-		addq.w	#2,a0
+		move.b	(a0)+,d0
+		move.b	(a0)+,-(a7)
+		move.w	(a7)+,d3
+		move.b	d0,d3
 		move.l	a1,a2
 		sub.l	d3,a2
 		move.b	(a2)+,(a1)+
@@ -1254,9 +1280,10 @@ ll_sm10:
 		bpl.s	.tloop23
 		cmpa.l	a0,a4
 		beq.s	lz4Rts27
-		movep.w	1(a0),d3
-		move.b	(a0),d3
-		addq.w	#2,a0
+		move.b	(a0)+,d0
+		move.b	(a0)+,-(a7)
+		move.w	(a7)+,d3
+		move.b	d0,d3
 		move.l	a1,a2
 		sub.l	d3,a2
 		move.b	(a2)+,(a1)+
@@ -1312,9 +1339,10 @@ ll_sm11:
 		bpl.s	.tloop25
 		cmpa.l	a0,a4
 		beq.s	lz4Rts28
-		movep.w	1(a0),d3
-		move.b	(a0),d3
-		addq.w	#2,a0
+		move.b	(a0)+,d0
+		move.b	(a0)+,-(a7)
+		move.w	(a7)+,d3
+		move.b	d0,d3
 		move.l	a1,a2
 		sub.l	d3,a2
 		move.b	(a2)+,(a1)+
@@ -1371,9 +1399,10 @@ ll_sm12:
 		bpl.s	.tloop27
 		cmpa.l	a0,a4
 		beq.s	lz4Rts29
-		movep.w	1(a0),d3
-		move.b	(a0),d3
-		addq.w	#2,a0
+		move.b	(a0)+,d0
+		move.b	(a0)+,-(a7)
+		move.w	(a7)+,d3
+		move.b	d0,d3
 		move.l	a1,a2
 		sub.l	d3,a2
 		move.b	(a2)+,(a1)+
@@ -1431,9 +1460,10 @@ ll_sm13:
 		bpl.s	.tloop29
 		cmpa.l	a0,a4
 		beq.s	lz4Rts30
-		movep.w	1(a0),d3
-		move.b	(a0),d3
-		addq.w	#2,a0
+		move.b	(a0)+,d0
+		move.b	(a0)+,-(a7)
+		move.w	(a7)+,d3
+		move.b	d0,d3
 		move.l	a1,a2
 		sub.l	d3,a2
 		move.b	(a2)+,(a1)+
@@ -1492,9 +1522,10 @@ ll_sm14:
 		bpl.s	.tloop31
 		cmpa.l	a0,a4
 		beq.s	lz4Rts31
-		movep.w	1(a0),d3
-		move.b	(a0),d3
-		addq.w	#2,a0
+		move.b	(a0)+,d0
+		move.b	(a0)+,-(a7)
+		move.w	(a7)+,d3
+		move.b	d0,d3
 		move.l	a1,a2
 		sub.l	d3,a2
 		move.b	(a2)+,(a1)+
@@ -1554,9 +1585,10 @@ ll_lm:
 		bpl.s	.tloop33
 		cmpa.l	a0,a4
 		beq.s	lz4Rts32
-		movep.w	1(a0),d3
-		move.b	(a0),d3
-		addq.w	#2,a0
+		move.b	(a0)+,d0
+		move.b	(a0)+,-(a7)
+		move.w	(a7)+,d3
+		move.b	d0,d3
 		move.l	a1,a2
 		sub.l	d3,a2
 		moveq	#15+4,d1

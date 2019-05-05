@@ -25,9 +25,10 @@ lz4_depack:
 			moveq	#15,d4
 			bra.s	.tokenLoop
 			
-.lenOffset:	movep.w	1(a0),d3	; read 16bits offset, little endian, unaligned
-			move.b	(a0),d3
-			addq.w	#2,a0
+.lenOffset:	move.b	(a0)+,d1	; read 16bits offset, little endian, unaligned
+			move.b	(a0)+,-(a7)
+			move.w	(a7)+,d3
+			move.b	d1,d3
 			movea.l	a1,a3
 			sub.l	d3,a3
 			moveq	#$f,d1
@@ -53,7 +54,7 @@ lz4_depack:
 
 			; end test is always done just after literals
 			cmpa.l	a0,a4
-			bne.s		.lenOffset
+			bne.s	.lenOffset
 			
 .over:		rts						; end
 

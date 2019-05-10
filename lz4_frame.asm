@@ -26,11 +26,14 @@ lz4_frame_depack:
 		cmpi.b	#%01000000,d0
 		bne.s	lz4_frame_error
 
-		movep.w	6(a0),d0			; read unaligned 32bits, little indian (LZ4 packed block size)
+		; read 32bits block size without movep (little endian)
+		move.b	6(a0),d0
+		lsl.w	#8,d0
 		move.b	5(a0),d0
 		swap	d0
-		movep.w	4(a0),d0
-		move.b	3(a0),d0	
+		move.b	4(a0),d0
+		lsl.w	#8,d0
+		move.b	3(a0),d0
 		lea		7(a0),a0			; skip LZ4 block header + packed data size
 
 		bra.s	lz4_depack

@@ -8,7 +8,7 @@
 ;
 ;---------------------------------------------------------
 
-; Smallest version: depacker is only 76 bytes
+; Smallest version: depacker is only 74 bytes
 ;
 ; input: a0.l : packed buffer
 ;		 a1.l : output buffer
@@ -21,16 +21,15 @@ lz4_depack:
 			lea		0(a0,d0.l),a4	; packed buffer end
 			moveq	#0,d0
 			moveq	#0,d2
-			moveq	#0,d3
 			moveq	#15,d4
 			bra.s	.tokenLoop
 			
-.lenOffset:	move.b	(a0)+,d1	; read 16bits offset, little endian, unaligned
+.lenOffset:	move.b	(a0)+,d2	; read 16bits offset, little endian, unaligned
 			move.b	(a0)+,-(a7)
-			move.w	(a7)+,d3
-			move.b	d1,d3
+			move.w	(a7)+,d1
+			move.b	d2,d1
 			movea.l	a1,a3
-			sub.l	d3,a3
+			sub.l	d1,a3		; d1 bits 31..16 are always 0 here
 			moveq	#$f,d1
 			and.w	d0,d1
 

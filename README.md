@@ -1,7 +1,7 @@
 # lz4-68k
 Three versions of LZ4 decoders for 68k processors. 
 
-Written by Arnaud Carré ( [@leonard_coder]: https://twitter.com/leonard_coder )
+Written by Arnaud Carré ( [@leonard_coder](https://twitter.com/leonard_coder) )
 
 LZ4 technology by Yann Collet ( https://lz4.github.io/lz4/ )
 

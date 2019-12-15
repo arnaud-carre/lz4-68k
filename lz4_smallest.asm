@@ -8,7 +8,7 @@
 ;
 ;---------------------------------------------------------
 
-; Smallest version: depacker is only 74 bytes
+; Smallest version: depacker is only 72 bytes
 ;
 ; input: a0.l : packed buffer
 ;		 a1.l : output buffer
@@ -22,7 +22,21 @@ lz4_depack:
 			moveq	#0,d0
 			moveq	#0,d2
 			moveq	#15,d4
-			bra.s	.tokenLoop
+
+.tokenLoop:	move.b	(a0)+,d0
+			move.l	d0,d1
+			lsr.b	#4,d1
+			beq.s	.lenOffset
+
+			bsr.s	.readLen
+
+.litcopy:	move.b	(a0)+,(a1)+
+			subq.l	#1,d1			; block could be > 64KiB
+			bne.s	.litcopy
+
+			; end test is always done just after literals
+			cmpa.l	a0,a4
+			beq.s	.readEnd
 			
 .lenOffset:	move.b	(a0)+,d2	; read 16bits offset, little endian, unaligned
 			move.b	(a0)+,-(a7)
@@ -39,23 +53,7 @@ lz4_depack:
 .copy:		move.b	(a3)+,(a1)+
 			subq.l	#1,d1
 			bne.s	.copy
-			
-.tokenLoop:	move.b	(a0)+,d0
-			move.l	d0,d1
-			lsr.b	#4,d1
-			beq.s	.lenOffset
-
-			bsr.s	.readLen
-
-.litcopy:	move.b	(a0)+,(a1)+
-			subq.l	#1,d1			; block could be > 64KiB
-			bne.s	.litcopy
-
-			; end test is always done just after literals
-			cmpa.l	a0,a4
-			bne.s	.lenOffset
-			
-.over:		rts						; end
+			bra.s	.tokenLoop
 
 .readLen:	cmp.b	d1,d4
 			bne.s	.readEnd

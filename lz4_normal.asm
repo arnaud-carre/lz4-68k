@@ -32,8 +32,7 @@ lz4_depack:
 			move.b	d1,d3
 			movea.l	a1,a3
 			sub.l	d3,a3
-			moveq	#$f,d1
-			and.w	d0,d1
+			move.w	d0,d1
 			cmp.b	d4,d1
 			bne.s	.small
 
@@ -65,6 +64,7 @@ lz4_depack:
 			move.l	d0,d1
 			lsr.b	#4,d1
 			beq.s	.lenOffset
+			and.w	d4,d0
 			cmp.b	d4,d1
 			beq.s	.readLen1
 

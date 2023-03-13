@@ -37,15 +37,17 @@ lz4_depack:
 			; end test is always done just after literals
 			cmpa.l	a0,a4
 			beq.s	.readEnd
-			
+
+			and.b	d4,d0
+
 .lenOffset:	move.b	(a0)+,d2	; read 16bits offset, little endian, unaligned
 			move.b	(a0)+,-(a7)
 			move.w	(a7)+,d1
 			move.b	d2,d1
 			movea.l	a1,a3
 			sub.l	d1,a3		; d1 bits 31..16 are always 0 here
-			moveq	#$f,d1
-			and.w	d0,d1
+
+			move.w	d0,d1
 
 			bsr.s	.readLen
 

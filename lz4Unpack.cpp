@@ -9,7 +9,7 @@
 ;---------------------------------------------------------*/
 #include "lz4Unpack.h"
 
-static	size_t	lz4_rlen(size_t size, const uint8_t*& ppRead)
+static	uint32_t	lz4_rlen(uint32_t size, const uint8_t*& ppRead)
 {
 	if (15 == size)
 	{
@@ -24,18 +24,18 @@ static	size_t	lz4_rlen(size_t size, const uint8_t*& ppRead)
 	return size;
 }
 
-int	ymLz4Unpack(uint8_t* out, const uint8_t* src, size_t srcSize)
+int	lz4BlockUnpack(uint8_t* out, const uint8_t* src, uint32_t srcSize)
 {
 	const uint8_t* outStart = out;
 	const uint8_t* lz4BlockEnd = src + srcSize;
 	for (;;)
 	{
 		const uint8_t token = *src++;
-		size_t count = size_t(token >> 4);
+		uint32_t count = uint32_t(token >> 4);
 		if (count > 0)
 		{
 			count = lz4_rlen(count, src);
-			for (size_t i = 0; i < count; i++)
+			for (uint32_t i = 0; i < count; i++)
 				*out++ = *src++;
 
 			if (src == lz4BlockEnd)
@@ -47,8 +47,25 @@ int	ymLz4Unpack(uint8_t* out, const uint8_t* src, size_t srcSize)
 		src += 2;
 		count = lz4_rlen(token&15U, src) + 4;
 		const uint8_t* r = out - offset;
-		for (size_t i = 0; i < count; i++)
+		for (uint32_t i = 0; i < count; i++)
 			*out++ = *r++;
 	}
 	return int(out - outStart);
+}
+
+static uint32_t readU32LittleEndian(const uint8_t* src)
+{
+	return ((uint32_t(src[3]) << 24) | (uint32_t(src[2]) << 16) | (uint32_t(src[1]) << 8) | (uint32_t(src[0]) << 0));
+}
+
+int lz4FrameUnpack(uint8_t* dst, const uint8_t* src)
+{
+	if (readU32LittleEndian(src) != 0x184D2204)
+		return -1;
+
+	if (0x40 != (src[4] & 0xc9))	// check version, no depacked size, and no DictID
+		return -1;
+
+	const uint32_t packedSize = readU32LittleEndian(src + 7);
+	return lz4BlockUnpack(dst, src+7+4, packedSize);
 }

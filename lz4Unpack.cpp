@@ -67,5 +67,8 @@ int lz4FrameUnpack(uint8_t* dst, const uint8_t* src)
 		return -1;
 
 	const uint32_t packedSize = readU32LittleEndian(src + 7);
+	if (packedSize&(1<<31))			// top bit set == uncompressed
+		return -1;
+	
 	return lz4BlockUnpack(dst, src+7+4, packedSize);
 }

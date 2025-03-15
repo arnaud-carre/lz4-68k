@@ -30,7 +30,7 @@ lz4_frame_depack:
 		move.b	4(a0),d0
 		swap	d0
 		move.b	6(a0),d0
-		bmi.b	lz4_frame_error		; top bit set == uncompressed
+		bmi.s	lz4_frame_error		; top bit set == uncompressed
 		lsl.l	#8,d0
 		move.b	5(a0),d0
 		swap	d0
